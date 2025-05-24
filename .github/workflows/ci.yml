@@ -27,6 +27,8 @@ jobs:
         pip install -r final_task/requirements.txt
 
     - name: Run unit tests
+      env:
+        PYTHONPATH: .
       run: |
         pytest final_task/tests/ --verbose
 
