@@ -1,0 +1,6 @@
+final_task/model.pkl
+.venv/
+__pycache__/
+*.pyc
+.dvc/cache/
+.dvc/tmp/
