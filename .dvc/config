@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = D:\dvc_storage
+    url = D:\University\dvc_storage
