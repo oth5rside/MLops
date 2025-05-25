@@ -24,17 +24,17 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install -r final_task/requirements.txt
+        pip install -r requirements.txt
 
     - name: Run unit tests
       env:
         PYTHONPATH: .
       run: |
-        pytest final_task/tests/ --verbose
+        pytest tests/ --verbose
 
     - name: Build Docker image
       run: |
-        docker build -t my-app -f final_task/Dockerfile .
+        docker build -t my-app -f Dockerfile .
 
     - name: Test Docker container
       run: |
