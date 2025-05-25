@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .dvc/cache/
 .dvc/tmp/
+/model.pkl
