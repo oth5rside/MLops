@@ -4,3 +4,4 @@
     url = gdrive://1V9GYwBZf25b0MKNczmTweaYol214hwbC
     gdrive_use_service_account = true
     gdrive_service_account_json_file_path = ../creds.json
+	gdrive_service_account_p12 = ../creds.json
