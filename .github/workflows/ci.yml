@@ -27,6 +27,10 @@ jobs:
     - name: Setup creds.json
       run: |
         echo '${{ secrets.CREDS }}' > creds.json
+    - name: Run unit tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+      run: pytest tests/ --verbose
 
     
     - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
