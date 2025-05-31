@@ -24,9 +24,10 @@ jobs:
         pip install -r requirements.txt
         pip install dvc[gdrive]
         
-    - name: Setup GDrive credentials
+    - name: Setup creds.json
       run: |
-    echo "${{ secrets.CREDS }}" > creds.json
+    echo '${{ secrets.CREDS }}' > creds.json
+
     
     - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
       run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
