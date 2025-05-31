@@ -36,6 +36,9 @@ jobs:
     - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
       run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
     
+    - name: Pull data and model files
+      run: dvc pull model.pkl
+    
     - name: DVC Pull model from Google Drive
       run: dvc pull model.pkl.dvc
 
