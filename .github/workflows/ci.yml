@@ -22,10 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install 'dvc[gdrive]'
-    - name: Setup GDrive credentials
-      run: |
-    echo "${{ secrets.CREDS }}" > ../creds.json
+        pip install dvc[gdrive]
     
     - name: DVC Pull model from Google Drive
       run: dvc pull model.pkl.dvc
