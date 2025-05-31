@@ -23,27 +23,20 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install dvc[gdrive]
-        
+
     - name: Setup creds.json
-      run: |
-        echo '${{ secrets.CREDS }}' > creds.json
+      run: echo '${{ secrets.CREDS }}' > creds.json
+
+    - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
+      run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
+
+    - name: DVC Pull model from Google Drive
+      run: dvc pull
+
     - name: Run unit tests
       env:
         PYTHONPATH: ${{ github.workspace }}
       run: pytest tests/ --verbose
-
-    
-    - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
-      run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
-    
-    - name: DVC Pull model from Google Drive
-      run: dvc pull
-
-    - name: Run tests
-      env:
-        PYTHONPATH: ${{ github.workspace }}
-      run: pytest tests/ --verbose
-
 
     - name: Build Docker image
       run: docker build -t my-ml-api-app .
