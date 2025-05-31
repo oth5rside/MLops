@@ -37,13 +37,13 @@ jobs:
       run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
     
     - name: DVC Pull model from Google Drive
-      run: dvc pull model.pkl
-    
-    - name: DVC Pull model from Google Drive
-      run: dvc pull model.pkl.dvc
+      run: dvc pull
 
-    - name: Run unit tests
+    - name: Run tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: pytest tests/ --verbose
+
 
     - name: Build Docker image
       run: docker build -t my-ml-api-app .
