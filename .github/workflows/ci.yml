@@ -18,6 +18,8 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
+    - name: Install numpy separately
+      run: pip install numpy==1.24.4
 
     - name: Install dependencies
       run: |
