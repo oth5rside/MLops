@@ -23,6 +23,13 @@ jobs:
       run: |
         pip install -r requirements.txt
         pip install dvc[gdrive]
+        
+    - name: Setup GDrive credentials
+      run: |
+    echo "${{ secrets.CREDS }}" > creds.json
+    
+    - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
+      run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
     
     - name: DVC Pull model from Google Drive
       run: dvc pull model.pkl.dvc
