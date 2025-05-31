@@ -1,4 +1,25 @@
-[core]
-    remote = myremote
-['remote "myremote"']
-    url = D:\University\dvc_storage
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.venv/
+*.egg-info/
+*.egg
+*.whl
+
+# DVC
+*.dvc
+.dvc/
+.dvcignore
+
+# Docker
+*.dockerignore
+
+# Data
+data/*
+!data/*.dvc
+!data/.gitignore
+
+# Misc
+*.log
+*.env
