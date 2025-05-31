@@ -35,7 +35,9 @@ jobs:
       run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
 
     - name: DVC Pull model from Google Drive
-      run: dvc pull
+      run: |
+        dvc pull model.pkl
+        ls -la
 
     - name: Run unit tests
       env:
