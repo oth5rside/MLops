@@ -26,7 +26,7 @@ jobs:
         
     - name: Setup GDrive credentials
       run: |
-    echo "${{ secrets.GDRIVE_CREDS }}" > creds.json
+    echo "${{ secrets.CREDS }}" > creds.json
     
     - name: Set GOOGLE_APPLICATION_CREDENTIALS env var
       run: echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/creds.json" >> $GITHUB_ENV
