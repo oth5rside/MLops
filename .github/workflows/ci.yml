@@ -25,7 +25,7 @@ jobs:
         pip install 'dvc[gdrive]'
     - name: Setup GDrive credentials
       run: |
-    echo "${{ secrets.GDRIVE_CREDS }}" > ../creds.json
+    echo "${{ secrets.CREDS }}" > ../creds.json
     
     - name: DVC Pull model from Google Drive
       run: dvc pull model.pkl.dvc
