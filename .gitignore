@@ -4,5 +4,5 @@ __pycache__/
 *.pyc
 .dvc/cache/
 .dvc/tmp/
-/model.pkl
+model.pkl
 creds.json
